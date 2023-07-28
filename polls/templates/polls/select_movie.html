@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+        <title>Movies</title>
+    </head>
+    <header>
+        <h1>{{user.username}}</h1>
+        <p>email:{{user.email}}</p>
+        <a class="button-a" href="{% url 'polls:logout' %}">Logout</a>
+        <a class="button-a" href="{% url 'polls:login' %}">Login</a>
+        <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+        <a class="button-a" href="{% url 'polls:write_review' %}">NewReview</a>
+        <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+        <a class="button-a" href="{% url 'polls:user' %}">UserInfo</a>
+    </header>
+    <body>
+        <div class="movies-area">
+            {% for movie in movies %}
+            <div class="one_movie_area">
+                <a href="{% url 'polls:reviews' pk=movie.id %}">
+                    <div class="movie-contents">
+                        {% comment %} ../media/movie-poster/poster_dragonwar.png {% endcomment %}
+                        <img class="movie-poster" src="..{{movie.poster.url}}">
+                        <p class="movie-title">{{movie.title}}</p>
+                        
+                    </div>
+                </a>
+                <div class="movie_review_info">
+                    <p class="movie-avg-star">&#9733;{{movie.avg_star}}</p>
+                    <p class="movie-review-num">{{movie.reviews_count}} reviews</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+
+</html>
+

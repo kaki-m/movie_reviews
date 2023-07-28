@@ -1,0 +1,25 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <head>
+            <a class="button-a" href="{% url 'polls:logout' %}">Logout</a>
+            <a class="button-a" href="{% url 'polls:login' %}">Login</a>
+            <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+            <a class="button-a" href="{% url 'polls:write_review' %}">NewReview</a>
+            <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+            <a class="button-a" href="{% url 'polls:user' %}">UserInfo</a>
+        </head>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form action="{%url 'polls:login' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <p><input type="submit" value="LOGIN"></p>
+        </form>
+    </body>
+</html>

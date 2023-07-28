@@ -1,0 +1,36 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<head>
+    <a class="button-a" href="{% url 'polls:logout' %}">Logout</a>
+    <a class="button-a" href="{% url 'polls:login' %}">Login</a>
+    <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+    <a class="button-a" href="{% url 'polls:write_review' %}">NewReview</a>
+    <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+    <a class="button-a" href="{% url 'polls:user' %}">UserInfo</a>
+</head>
+
+<div class="movie-contents">
+    {% comment %} ../media/movie-poster/poster_dragonwar.png {% endcomment %}
+    <img class="movie-poster" src="..{{movie.poster.url}}">
+    <h1 class="movie-title">{{movie.title}}</h1>
+</div>
+<div class="review_content">
+        {% for review in reviews %}
+        <div class="one_review">
+            <h2>{{review.title}}</h2>
+            {% if review.star_num > 0 %}
+                {% with range=''|center:review.star_num %}
+                    {% for i in range %}
+                        &#9733; <!--星アイコン-->
+                    {% endfor %}
+                {% endwith %}
+            {% else %}
+                😢
+            {% endif%}
+            <p>{{review.content_text}}</p>
+            <br>
+            <p>{{review.writer}}
+        </div>
+        {% endfor %}
+</div>

@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>User info</title>
+        <head>
+            <a class="button-a" href="{% url 'polls:logout' %}">Logout</a>
+            <a class="button-a" href="{% url 'polls:login' %}">Login</a>
+            <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+            <a class="button-a" href="{% url 'polls:write_review' %}">NewReview</a>
+            <a class="button-a" href="{% url 'polls:movies' %}">MovieList</a>
+        </head>
+    </head>
+    <body>
+        <h1>{{user.username}}</h1>
+        <p>email:{{user.email}}</p>
+        <p>Created date: {{user.date_joined}}</p>
+    </body>
+
+</html>
+

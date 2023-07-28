@@ -1,0 +1,43 @@
+li a{
+    color:green;
+}
+
+.movie-poster{
+    height:90px;
+}
+
+.movie-contents{
+    height:100px;
+    display: flex;
+  align-items: center;
+  background-color: aliceblue;
+  padding-bottom:5px;
+}
+
+.movies-area{
+    background-color: white;
+}
+
+.one_review{
+    background-color:antiquewhite;
+    padding-bottom: 3px;
+}
+
+.one_movie_area{
+    background-color: aliceblue;
+    align-items: center;
+}
+
+.button-a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-a:hover {
+    background-color: #0056b3;
+}
